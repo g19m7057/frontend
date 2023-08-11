@@ -1,0 +1,43 @@
+<form [formGroup]="userEmail" (ngSubmit)="userEmailSubmit()" *ngIf="!email">
+  <div class="mb-3">
+    <label>Email:</label>
+    <input class="form-control" type="email" formControlName="email">  
+  </div>
+  <button type="submit" class="btn btn-primary">Update User</button>
+</form>
+
+
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()" *ngIf="email">
+  <div class="mb-3">
+    <label>Username:</label>
+    <input class="form-control" type="email" formControlName="username">  
+  </div>
+
+  <div *ngIf="updateForm.get('username')?.invalid && updateForm.get('username')?.touched">
+      Valid username is required.
+  </div>
+
+  <div class="mb-3">
+    <label>Email:</label>
+    <input  class="form-control" type="email" formControlName="email">  
+  </div>
+
+  <div *ngIf="updateForm.get('email')?.invalid && updateForm.get('email')?.touched">
+      Valid email is required.
+  </div>
+
+  <div class="mb-3">
+    <label for="password">Password:</label>
+    <input class="form-control" type="password" id="password" formControlName="password">
+  </div>
+
+  <div *ngIf="updateForm.get('password')?.hasError('required') && updateForm.get('password')?.touched">
+    Password is required.
+  </div>
+
+  <div *ngIf="updateForm.get('password')?.hasError('pattern') && updateForm.get('password')?.touched">
+    Password must include at least one lowercase letter, one uppercase letter, and one digit
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Submit</button>
+</form>

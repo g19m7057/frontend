@@ -1,0 +1,9 @@
+<form [formGroup]="retrieveForm" (ngSubmit)="onSubmit()">
+    <label>Email:</label>
+    <input type="email" formControlName="email">  
+    <div *ngIf="retrieveForm.get('email')?.invalid && retrieveForm.get('email')?.touched">
+        Valid email is required.
+    </div>
+      
+    <button type="submit" [disabled]="retrieveForm.invalid">Submit</button>
+</form>

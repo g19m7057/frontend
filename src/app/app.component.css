@@ -1,0 +1,10 @@
+/* #root_page {
+    display: block;
+} */
+
+#root_page{
+    margin-top: 60px;
+    /* background-image: url('../assets/home1.png');  */
+    background-size:auto;
+    background-position: center;
+}

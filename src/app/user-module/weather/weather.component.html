@@ -1,0 +1,8 @@
+<form [formGroup]="weatherForm">
+    <label>City:</label>
+        <input type="text" formControlName="city"/>
+    <div *ngIf="weatherForm.get('city')?.invalid && weatherForm.get('city')?.touched">
+        Valid city is required.
+    </div>
+</form>
+<button (click)="fetchWeatherData()">Fetch Weather</button>
